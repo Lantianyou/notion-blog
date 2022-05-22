@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 import Header from '../components/header'
-import Image from 'next/image'
 import ExtLink from '../components/ext-link'
 import sharedStyles from '../styles/shared.module.css'
 
@@ -9,12 +8,6 @@ export default function Index() {
     <>
       <Header titlePre="Home" />
       <div className={sharedStyles.layout}>
-        <Image
-          src="/vercel-and-notion.png"
-          height="85"
-          width="250"
-          alt="Vercel + Notion"
-        />
         <h1>My Notion Blog</h1>
         <h2>
           Blazing Fast Notion Blog with Next.js'{' '}
