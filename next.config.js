@@ -1,9 +1,9 @@
 const fs = require('fs')
 const path = require('path')
-const {
-  NOTION_TOKEN,
-  BLOG_INDEX_ID,
-} = require('./src/lib/notion/server-constants')
+// const {
+//   NOTION_TOKEN,
+//   BLOG_INDEX_ID,
+// } = require('./src/lib/notion/server-constants')
 
 try {
   fs.unlinkSync(path.resolve('.blog_index_data'))
@@ -16,12 +16,12 @@ try {
   /* non fatal */
 }
 
-const warnOrError =
-  process.env.NODE_ENV !== 'production'
-    ? console.warn
-    : (msg) => {
-        throw new Error(msg)
-      }
+// const warnOrError =
+//   process.env.NODE_ENV !== 'production'
+//     ? console.warn
+//     : (msg) => {
+//         throw new Error(msg)
+//       }
 
 // if (!NOTION_TOKEN) {
 //   // We aren't able to build or serve images from Notion without the
@@ -41,7 +41,17 @@ const warnOrError =
 //   )
 // }
 
-module.exports = {
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+    // If you use `MDXProvider`, uncomment the following line.
+    // providerImportSource: "@mdx-js/react",
+  },
+})
+
+module.exports = withMDX({
   swcMinify: true,
   webpack(cfg, { dev, isServer }) {
     // only compile build-rss in production server build
@@ -58,4 +68,4 @@ module.exports = {
     }
     return cfg
   },
-}
+})
