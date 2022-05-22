@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const {
   NOTION_TOKEN,
-  BLOG_INDEX_ID,
+  // BLOG_INDEX_ID,
 } = require('./src/lib/notion/server-constants')
 
 try {
@@ -41,9 +41,20 @@ const warnOrError =
 //   )
 // }
 
-module.exports = {
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+    // If you use `MDXProvider`, uncomment the following line.
+    // providerImportSource: "@mdx-js/react",
+  },
+})
+
+module.exports = withMDX({
   swcMinify: true,
   webpack(cfg, { dev, isServer }) {
+    cfg.resolve.fallback = {fs: false}
     // only compile build-rss in production server build
     if (dev || !isServer) return cfg
 
@@ -58,4 +69,4 @@ module.exports = {
     }
     return cfg
   },
-}
+})

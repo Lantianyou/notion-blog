@@ -2,7 +2,6 @@
 import Header from '../components/header'
 import Image from 'next/image'
 import ExtLink from '../components/ext-link'
-import Features from '../components/features'
 import sharedStyles from '../styles/shared.module.css'
 
 export default function Index() {
@@ -27,8 +26,6 @@ export default function Index() {
             SSG
           </ExtLink>
         </h2>
-
-        <Features />
 
         <div className="explanation">
           <p>

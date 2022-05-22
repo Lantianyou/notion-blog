@@ -2,7 +2,6 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Header from '../../components/header'
-import Heading from '../../components/heading'
 import components from '../../components/dynamic'
 // import ReactJSXParser from '@zeit/react-jsx-parser'
 import blogStyles from '../../styles/blog.module.css'
@@ -177,11 +176,11 @@ const RenderPost = ({ post, redirect, preview }) => {
             listTagName = components[type === 'bulleted_list' ? 'ul' : 'ol']
             listLastId = `list${id}`
 
-            listMap[id] = {
-              key: id,
-              nested: [],
-              children: textBlock(properties.title, true, id),
-            }
+            // listMap[id] = {
+            //   key: id,
+            //   nested: [],
+            //   // children: textBlock(properties.title, true, id),
+            // }
 
             if (listMap[parent_id]) {
               listMap[id].isNested = true
@@ -221,13 +220,14 @@ const RenderPost = ({ post, redirect, preview }) => {
             listTagName = null
           }
 
-          const renderHeading = (Type: string | React.ComponentType) => {
-            toRender.push(
-              <Heading key={id}>
-                <Type key={id}>{textBlock(properties.title, true, id)}</Type>
-              </Heading>
-            )
-          }
+          // const renderHeading = () => {
+          //   // Type: string | React.ComponentType
+          //   toRender.push(
+          //     <Heading key={id}>
+          //       {/* <Type key={id}>{textBlock(properties.title, true, id)}</Type> */}
+          //     </Heading>
+          //   )
+          // }
 
           const renderBookmark = ({ link, title, description, format }) => {
             const { bookmark_icon: icon, bookmark_cover: cover } = format
@@ -377,15 +377,15 @@ const RenderPost = ({ post, redirect, preview }) => {
               )
               break
             }
-            case 'header':
-              renderHeading('h1')
-              break
-            case 'sub_header':
-              renderHeading('h2')
-              break
-            case 'sub_sub_header':
-              renderHeading('h3')
-              break
+            // case 'header':
+            //   renderHeading('h1')
+            //   break
+            // case 'sub_header':
+            //   renderHeading('h2')
+            //   break
+            // case 'sub_sub_header':
+            //   renderHeading('h3')
+            //   break
             case 'bookmark':
               const { link, title, description } = properties
               const { format = {} } = value
