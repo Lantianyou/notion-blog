@@ -53,8 +53,7 @@ export function SidebarNavigation() {
           isActive: router.asPath.indexOf('/newsletter') >= 0,
           trailingAction: null,
           isExternal: false,
-        }
-
+        },
       ],
     },
     {
