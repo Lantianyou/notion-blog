@@ -19,6 +19,7 @@ export default function Index() {
             SSG
           </ExtLink>
         </h2>
+        123
 
         <div className="explanation">
           <p>
