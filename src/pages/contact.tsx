@@ -8,6 +8,7 @@ import GitHub from '../components/svgs/github'
 import Twitter from '../components/svgs/twitter'
 import Envelope from '../components/svgs/envelope'
 import LinkedIn from '../components/svgs/linkedin'
+import Image from 'next/image'
 
 const contacts = [
   {
@@ -38,7 +39,7 @@ export default function Contact() {
       <Header titlePre="Contact" />
       <div className={sharedStyles.layout}>
         <div className={contactStyles.avatar}>
-          <img src="/avatar.png" alt="avatar with letters JJ" height={60} />
+          <Image src="/avatar.png" alt="avatar with letters JJ" height={60} />
         </div>
 
         <h1 style={{ marginTop: 0 }}>Contact</h1>

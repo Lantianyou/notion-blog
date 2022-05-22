@@ -1,4 +1,6 @@
+/* eslint-disable react/no-unescaped-entities */
 import Header from '../components/header'
+import Image from 'next/image'
 import ExtLink from '../components/ext-link'
 import Features from '../components/features'
 import sharedStyles from '../styles/shared.module.css'
@@ -8,7 +10,7 @@ export default function Index() {
     <>
       <Header titlePre="Home" />
       <div className={sharedStyles.layout}>
-        <img
+        <Image
           src="/vercel-and-notion.png"
           height="85"
           width="250"
