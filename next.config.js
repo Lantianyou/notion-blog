@@ -64,7 +64,7 @@ module.exports = withMDX({
     const originalEntry = cfg.entry
     cfg.entry = async () => {
       const entries = { ...(await originalEntry()) }
-      entries['build-rss.js'] = './src/lib/build-rss.ts'
+      // entries['build-rss.js'] = './src/lib/build-rss.ts'
       return entries
     }
     return cfg
