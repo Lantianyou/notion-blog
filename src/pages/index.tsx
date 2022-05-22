@@ -21,7 +21,7 @@ export default function Index() {
           </ExtLink>
         </h2>
 
-        <Features />
+        {/* <Features /> */}
 
         <div className="explanation">
           <p>
