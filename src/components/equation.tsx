@@ -1,9 +1,9 @@
-import { renderToString, ParseError } from 'katex'
+import katex, { ParseError } from 'katex'
 
 function render(expression: string, displayMode: boolean): string {
   let result: string
   try {
-    result = renderToString(expression, { displayMode: displayMode })
+    result = katex.renderToString(expression, { displayMode: displayMode })
   } catch (e) {
     if (e instanceof ParseError) {
       result = e.message
