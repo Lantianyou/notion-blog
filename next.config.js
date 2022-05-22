@@ -54,6 +54,7 @@ const withMDX = require('@next/mdx')({
 module.exports = withMDX({
   swcMinify: true,
   webpack(cfg, { dev, isServer }) {
+    cfg.resolve.fallback = {fs: false}
     // only compile build-rss in production server build
     if (dev || !isServer) return cfg
 
