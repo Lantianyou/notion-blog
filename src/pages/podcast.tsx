@@ -1,4 +1,4 @@
-import { mapNotionDatabaseToPreviewList } from "../lib/notion/mapNotionPropertiesToValue"
+import { mapNotionDatabaseToPreviewList, QueryDatabaseResponse } from "../lib/notion/mapNotionPropertiesToValue"
 import { notionClient } from "../lib/notion/notionClient"
 
 type Podcast = {
@@ -18,7 +18,7 @@ export async function getStaticProps() {
   const response = await notionClient.databases.query({
     database_id,
   })
-  const podcastTable: Podcast[] = mapNotionDatabaseToPreviewList(response)
+  const podcastTable: Podcast[] = mapNotionDatabaseToPreviewList(response as QueryDatabaseResponse)
 
   return {
     props: {
