@@ -3,9 +3,9 @@ import rpc from './rpc'
 export default function queryCollection({
   collectionId,
   collectionViewId,
-  // loader = {},
-  // query = {},
-}: any) {
+}: // loader = {},
+// query = {},
+any) {
   const queryCollectionBody = {
     loader: {
       type: 'reducer',
