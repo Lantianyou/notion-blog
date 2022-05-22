@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Header from '../../components/header'
@@ -11,6 +12,7 @@ import React, { CSSProperties, useEffect } from 'react'
 import getBlogIndex from '../../lib/notion/getBlogIndex'
 import getNotionUsers from '../../lib/notion/getNotionUsers'
 import { getBlogLink, getDateStr } from '../../lib/blog-helpers'
+import Image from 'next/image'
 
 // Get the data for each blog post
 export async function getStaticProps({ params: { slug }, preview }) {
@@ -251,9 +253,10 @@ const RenderPost = ({ post, redirect, preview }) => {
                             {description}
                           </div>
                           <div className={blogStyles.bookmarkLinkWrapper}>
-                            <img
+                            <Image
                               src={icon}
                               className={blogStyles.bookmarkLinkIcon}
+                              alt="icon"
                             />
                             <div className={blogStyles.bookmarkLink}>
                               {link}
@@ -263,7 +266,7 @@ const RenderPost = ({ post, redirect, preview }) => {
                         <div className={blogStyles.bookmarkCoverWrapper1}>
                           <div className={blogStyles.bookmarkCoverWrapper2}>
                             <div className={blogStyles.bookmarkCoverWrapper3}>
-                              <img
+                              <Image
                                 src={cover}
                                 className={blogStyles.bookmarkCover}
                               />
