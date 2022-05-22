@@ -26,8 +26,8 @@ export async function getError(res: Response) {
   )}\n ${await getBodyOrNull(res)}`
 }
 
-export function getJSONHeaders(res: Response) {
-  return JSON.stringify(res.headers.raw())
+function getJSONHeaders(res: Response) {
+  return JSON.stringify(res.headers)
 }
 
 export function getBodyOrNull(res: Response) {
