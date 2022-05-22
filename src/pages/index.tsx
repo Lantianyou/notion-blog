@@ -19,8 +19,6 @@ export default function Index() {
             SSG
           </ExtLink>
         </h2>
-        123
-
         <div className="explanation">
           <p>
             This is a statically generated{' '}
